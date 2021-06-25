@@ -53,8 +53,8 @@ def FindWayObs(root):
 
     Parameters
     ----------
-    fichierXML : TYPE : .xml
-        DESCRIPTION : fichier à traiter
+    fichierXML : TYPE : 
+        DESCRIPTION : 
 
     Returns : Racine de la première observation
     -------
