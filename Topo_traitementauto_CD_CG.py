@@ -49,18 +49,18 @@ def delete_element():
     
 
 # def FindWayObs(fichierXML,root):
-#     '''
+    # '''
 
-#     Parameters
-#     ----------
-#     fichierXML : TYPE : .xml
-#         DESCRIPTION : fichier à traiter
+    # Parameters
+    # ----------
+    # fichierXML : TYPE : .xml
+    #     DESCRIPTION : fichier à traiter
 
-#     Returns : Racine de la première observation
-#     -------
-#     None.
+    # Returns : Racine de la première observation
+    # -------
+    # None.
 
-#     '''
+    # '''
 #     way = ''
 #     for i in range(4):
 #         if 'obs' in root[i]:
@@ -89,29 +89,91 @@ def delete_element():
 #         return way
     
 
-def delete_orientation():
-    if 2<3:
-        return "blabla"
+#def delete_orientation():
     
 #def delete_ouverture():
     
 #def delete_fermeture():
 
 def calcul_direction(dir_cercleD, dir_cercleG):
+    '''
+
+    Parameters
+    ----------
+    dir_cercleD : TYPE : float
+        DESCRIPTION : angle horizontal en cercle droit
+    dir_cercleG : TYPE : float
+        DESCRIPTION : angle horizontal en cercle gauche
+
+    Returns : angle horizontal unique corrigé de l'erreur de tourillonnement'
+    -------
+    None.
+
+    '''
     return dir_cercleD - (200 + dir_cercleD - dir_cercleG)/2
 
+
+
 def calcul_z_angle(vert_cercleD, vert_cercleG):
+    '''
+
+    Parameters
+    ----------
+    vert_cercleD : TYPE : float
+        DESCRIPTION : angle vertical en cercle droit
+    vert_cercleG : TYPE : float
+        DESCRIPTION : angle vertical en cercle gauche
+
+    Returns : angle vertical unique corrigé de l'erreur de tourillonnement'
+    -------
+    None.
+
+    '''
     return vert_cercleD + (400 - vert_cercleD - vert_cercleG)/2
 
+
+
+
 def calcul_direction_main(dicI, dicII):
+    '''
+
+    Parameters
+    ----------
+    dicI : TYPE : dictionnaire'
+        DESCRIPTION : dictionnaire de la mesure d'angle horizontal en cercle droit
+    dicII : TYPE : dictionnaire
+        DESCRIPTION : dictionnaire de la mesure d'angle horizontal en cercle gauche
+
+    Returns : (angle horizontal unique corrigé de l'erreur de tourillonnement, écart avec angle cerle droit)'
+    -------
+    None.
+
+    '''
     dir_cercleD = float(dicI['val'])
     dir_cercleG = float(dicII['val'])
     
     final = dir_cercleD - (200 + dir_cercleD - dir_cercleG)/2
     erreur_tourillonnement = abs(dir_cercleD - final)
+    
     return (final,erreur_tourillonnement)
 
+
+
 def calcul_z_angle_main(dicI, dicII):
+    '''
+
+    Parameters
+    ----------
+    dicI : TYPE : dictionnaire'
+        DESCRIPTION : dictionnaire de la mesure d'angle vertical en cercle droit
+    dicII : TYPE : dictionnaire
+        DESCRIPTION : dictionnaire de la mesure d'angle vertical en cercle gauche
+
+    Returns : (angle vertical unique corrigé de l'erreur de tourillonnement, écart avec angle cerle droit)'
+    -------
+    None.
+
+    '''
     vert_cercleD = float(dicI['val'])
     vert_cercleG = float(dicII['val'])
     
@@ -135,7 +197,7 @@ if __name__ == "__main__":
     #tree2 = ET.parse(path2)
     root = tree.getroot()
 
-    make_xml().write(sys.stdout) 
+    #make_xml().write(sys.stdout) 
     
     
     #fichier = np.genfromtxt("C:/Users/Utilisateur/Desktop/ENSG/Stage/Stage_ING2/Stage_corse_maxime_seguin/Part1_StVictorLaCoste/Traitement_donnees/Chapelle_StMartin/Topo/STMARTIN_M.xml")
