@@ -1,0 +1,166 @@
+<?xml version="1.0" ?>
+
+<gama-local xmlns="http://www.gnu.org/software/gama/gama-local">
+
+<network axes-xy="en" angles="right-handed">
+<description>
+  Projet : STMARTIN
+  Instrument : TCRA1203+
+  Numero : 238984
+  Operateur :   
+  Date : 08-06-2021
+</description>
+
+<parameters sigma-apr = "0.001" conf-pr = "0.95" tol-abs = "1000" sigma-act = "apriori" algorithm = "gso" angular = "400"
+ latitude = "44.1" ellipsoid = "grs80" cov-band = "-1" />
+
+<points-observations direction-stdev="0.001" zenith-angle-stdev="0.001" distance-stdev = "2 2 1" >
+
+<obs from="S2" from_dh="1.594">
+  <direction to="S1" val="0.0000" to_dh="1.440" />
+  <z-angle to="S1" val="100.2710" to_dh="1.440" />
+  <s-distance to="S1" val="7.227" to_dh="1.440" />
+  <!-- ATR="On" EDM-Measure-mode="Standard" EDM-type="Dist infra" Prism-type="Prisme Ron" -->
+  <direction to="S1" val="399.9975" to_dh="1.440" />
+  <z-angle to="S1" val="100.2710" to_dh="1.440" />
+  <s-distance to="S1" val="7.227" to_dh="1.440" />
+  <!-- ATR="On" EDM-Measure-mode="Standard" EDM-type="Dist infra" Prism-type="Prisme Ron" -->
+  <direction to="S1" val="199.9993" to_dh="1.440" />
+  <z-angle to="S1" val="299.7359" to_dh="1.440" />
+  <s-distance to="S1" val="7.227" to_dh="1.440" />
+  <!-- ATR="On" EDM-Measure-mode="Standard" EDM-type="Dist infra" Prism-type="Prisme Ron" -->
+  <direction to="S3" val="144.2685" to_dh="0.000" />
+  <z-angle to="S3" val="103.0173" to_dh="0.000" />
+  <s-distance to="S3" val="13.762" to_dh="0.000" />
+  <!-- ATR="On" EDM-Measure-mode="Standard" EDM-type="Dist infra" Prism-type="Prisme Ron" -->
+  <direction to="S3" val="344.2706" to_dh="0.000" />
+  <z-angle to="S3" val="296.9909" to_dh="0.000" />
+  <s-distance to="S3" val="13.762" to_dh="0.000" />
+  <!-- ATR="On" EDM-Measure-mode="Standard" EDM-type="Dist infra" Prism-type="Prisme Ron" -->
+  <direction to="P2" val="39.3116" to_dh="0.000" />
+  <z-angle to="P2" val="90.3407" to_dh="0.000" />
+  <s-distance to="P2" val="3.955" to_dh="0.000" />
+  <!-- ATR="Off" EDM-Measure-mode="Standard" EDM-type="Laser Roug" Prism-type="Aucun" -->
+  <direction to="P3" val="35.6110" to_dh="0.000" />
+  <z-angle to="P3" val="91.3836" to_dh="0.000" />
+  <s-distance to="P3" val="4.441" to_dh="0.000" />
+  <!-- ATR="Off" EDM-Measure-mode="Standard" EDM-type="Laser Roug" Prism-type="Aucun" -->
+  <direction to="P4" val="31.1887" to_dh="0.000" />
+  <z-angle to="P4" val="111.1789" to_dh="0.000" />
+  <s-distance to="P4" val="5.376" to_dh="0.000" />
+  <!-- ATR="Off" EDM-Measure-mode="Standard" EDM-type="Laser Roug" Prism-type="Aucun" -->
+  <direction to="S1" val="399.9947" to_dh="1.440" />
+  <z-angle to="S1" val="100.2700" to_dh="1.440" />
+  <s-distance to="S1" val="7.226" to_dh="1.440" />
+  <!-- ATR="On" EDM-Measure-mode="Standard" EDM-type="Dist infra" Prism-type="Prisme Ron" -->
+  <direction to="P1" val="53.7676" to_dh="0.000" />
+  <z-angle to="P1" val="29.2081" to_dh="0.000" />
+  <s-distance to="P1" val="6.735" to_dh="0.000" />
+  <!-- ATR="Off" EDM-Measure-mode="Standard" EDM-type="Laser Roug" Prism-type="Aucun" -->
+  <direction to="S1" val="399.9936" to_dh="1.440" />
+  <z-angle to="S1" val="100.2715" to_dh="1.440" />
+  <s-distance to="S1" val="7.226" to_dh="1.440" />
+  <!-- ATR="On" EDM-Measure-mode="Standard" EDM-type="Dist infra" Prism-type="Prisme Ron" -->
+</obs>
+
+<obs from="S3" from_dh="0.000">
+  <direction to="S2" val="0.0000" to_dh="1.594" />
+  <z-angle to="S2" val="96.9922" to_dh="1.594" />
+  <s-distance to="S2" val="13.762" to_dh="1.594" />
+  <!-- ATR="Off" EDM-Measure-mode="Standard" EDM-type="Dist infra" Prism-type="Prisme Ron" -->
+  <direction to="S2" val="400.0000" to_dh="1.594" />
+  <z-angle to="S2" val="96.9922" to_dh="1.594" />
+  <s-distance to="S2" val="13.762" to_dh="1.594" />
+  <!-- ATR="On" EDM-Measure-mode="Standard" EDM-type="Dist infra" Prism-type="Prisme Ron" -->
+  <direction to="S2" val="200.0019" to_dh="1.594" />
+  <z-angle to="S2" val="303.0166" to_dh="1.594" />
+  <s-distance to="S2" val="13.762" to_dh="1.594" />
+  <!-- ATR="On" EDM-Measure-mode="Standard" EDM-type="Dist infra" Prism-type="Prisme Ron" -->
+  <direction to="S4" val="55.2340" to_dh="0.000" />
+  <z-angle to="S4" val="99.3863" to_dh="0.000" />
+  <s-distance to="S4" val="16.038" to_dh="0.000" />
+  <!-- ATR="On" EDM-Measure-mode="Standard" EDM-type="Dist infra" Prism-type="Prisme Ron" -->
+  <direction to="S4" val="255.2359" to_dh="0.000" />
+  <z-angle to="S4" val="300.6202" to_dh="0.000" />
+  <s-distance to="S4" val="16.038" to_dh="0.000" />
+  <!-- ATR="On" EDM-Measure-mode="Standard" EDM-type="Dist infra" Prism-type="Prisme Ron" -->
+  <direction to="P5" val="48.7907" to_dh="0.000" />
+  <z-angle to="P5" val="94.1862" to_dh="0.000" />
+  <s-distance to="P5" val="9.225" to_dh="0.000" />
+  <!-- ATR="Off" EDM-Measure-mode="Standard" EDM-type="Laser Roug" Prism-type="Aucun" -->
+</obs>
+
+<obs from="S4" from_dh="0.000">
+  <direction to="S3" val="0.0000" to_dh="0.000" />
+  <z-angle to="S3" val="100.6200" to_dh="0.000" />
+  <s-distance to="S3" val="16.038" to_dh="0.000" />
+  <!-- ATR="Off" EDM-Measure-mode="Standard" EDM-type="Dist infra" Prism-type="Prisme Ron" -->
+  <direction to="S3" val="0.0002" to_dh="0.000" />
+  <z-angle to="S3" val="100.6212" to_dh="0.000" />
+  <s-distance to="S3" val="16.038" to_dh="0.000" />
+  <!-- ATR="On" EDM-Measure-mode="Standard" EDM-type="Dist infra" Prism-type="Prisme Ron" -->
+  <direction to="S3" val="200.0030" to_dh="0.000" />
+  <z-angle to="S3" val="299.3858" to_dh="0.000" />
+  <s-distance to="S3" val="16.038" to_dh="0.000" />
+  <!-- ATR="On" EDM-Measure-mode="Standard" EDM-type="Dist infra" Prism-type="Prisme Ron" -->
+  <direction to="S1" val="100.3917" to_dh="1.645" />
+  <z-angle to="S1" val="95.9279" to_dh="1.645" />
+  <s-distance to="S1" val="10.456" to_dh="1.645" />
+  <!-- ATR="On" EDM-Measure-mode="Standard" EDM-type="Dist infra" Prism-type="Prisme Ron" -->
+  <direction to="S1" val="300.3948" to_dh="1.645" />
+  <z-angle to="S1" val="304.0793" to_dh="1.645" />
+  <s-distance to="S1" val="10.457" to_dh="1.645" />
+  <!-- ATR="On" EDM-Measure-mode="Standard" EDM-type="Dist infra" Prism-type="Prisme Ron" -->
+  <direction to="P6" val="55.2031" to_dh="0.000" />
+  <z-angle to="P6" val="75.5711" to_dh="0.000" />
+  <s-distance to="P6" val="8.362" to_dh="0.000" />
+  <!-- ATR="Off" EDM-Measure-mode="Standard" EDM-type="Laser Roug" Prism-type="Aucun" -->
+  <direction to="P7" val="77.7378" to_dh="0.000" />
+  <z-angle to="P7" val="88.7972" to_dh="0.000" />
+  <s-distance to="P7" val="6.049" to_dh="0.000" />
+  <!-- ATR="Off" EDM-Measure-mode="Standard" EDM-type="Laser Roug" Prism-type="Aucun" -->
+  <direction to="P8" val="74.6405" to_dh="0.000" />
+  <z-angle to="P8" val="69.6308" to_dh="0.000" />
+  <s-distance to="P8" val="6.919" to_dh="0.000" />
+  <!-- ATR="Off" EDM-Measure-mode="Standard" EDM-type="Laser Roug" Prism-type="Aucun" -->
+  <direction to="S3" val="399.9988" to_dh="1.645" />
+  <z-angle to="S3" val="100.6223" to_dh="1.645" />
+  <s-distance to="S3" val="16.038" to_dh="1.645" />
+  <!-- ATR="On" EDM-Measure-mode="Standard" EDM-type="Dist infra" Prism-type="Prisme Ron" -->
+</obs>
+
+<obs from="S1" from_dh="1.645">
+  <direction to="S4" val="0.0000" to_dh="0.000" />
+  <z-angle to="S4" val="104.0796" to_dh="0.000" />
+  <s-distance to="S4" val="10.456" to_dh="0.000" />
+  <!-- ATR="On" EDM-Measure-mode="Standard" EDM-type="Dist infra" Prism-type="Prisme Ron" -->
+  <direction to="S4" val="0.0007" to_dh="0.000" />
+  <z-angle to="S4" val="104.0797" to_dh="0.000" />
+  <s-distance to="S4" val="10.456" to_dh="0.000" />
+  <!-- ATR="On" EDM-Measure-mode="Standard" EDM-type="Dist infra" Prism-type="Prisme Ron" -->
+  <direction to="S4" val="200.0033" to_dh="0.000" />
+  <z-angle to="S4" val="295.9272" to_dh="0.000" />
+  <s-distance to="S4" val="10.456" to_dh="0.000" />
+  <!-- ATR="On" EDM-Measure-mode="Standard" EDM-type="Dist infra" Prism-type="Prisme Ron" -->
+  <direction to="S2" val="100.0844" to_dh="1.553" />
+  <z-angle to="S2" val="101.8855" to_dh="1.553" />
+  <s-distance to="S2" val="7.217" to_dh="1.553" />
+  <!-- ATR="On" EDM-Measure-mode="Standard" EDM-type="Dist infra" Prism-type="Prisme Ron" -->
+  <direction to="S2" val="300.0882" to_dh="1.553" />
+  <z-angle to="S2" val="298.1242" to_dh="1.553" />
+  <s-distance to="S2" val="7.218" to_dh="1.553" />
+  <!-- ATR="On" EDM-Measure-mode="Standard" EDM-type="Dist infra" Prism-type="Prisme Ron" -->
+  <direction to="S4" val="0.0022" to_dh="0.000" />
+  <z-angle to="S4" val="104.0805" to_dh="0.000" />
+  <s-distance to="S4" val="10.457" to_dh="0.000" />
+  <!-- ATR="On" EDM-Measure-mode="Standard" EDM-type="Dist infra" Prism-type="Prisme Ron" -->
+  <direction to="S4" val="200.0064" to_dh="0.000" />
+  <z-angle to="S4" val="295.9281" to_dh="0.000" />
+  <s-distance to="S4" val="10.456" to_dh="0.000" />
+  <!-- ATR="On" EDM-Measure-mode="Standard" EDM-type="Dist infra" Prism-type="Prisme Ron" -->
+</obs>
+
+</points-observations>
+
+</network>
+</gama-local>

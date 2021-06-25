@@ -48,45 +48,48 @@ def delete_element():
     return None
     
 
-# def FindWayObs(fichierXML,root):
-    # '''
+def FindWayObs(root):
+    '''
 
-    # Parameters
-    # ----------
-    # fichierXML : TYPE : .xml
-    #     DESCRIPTION : fichier à traiter
+    Parameters
+    ----------
+    fichierXML : TYPE : .xml
+        DESCRIPTION : fichier à traiter
 
-    # Returns : Racine de la première observation
-    # -------
-    # None.
+    Returns : Racine de la première observation
+    -------
+    None.
 
-    # '''
-#     way = ''
-#     for i in range(4):
-#         if 'obs' in root[i]:
-#             way = root[i]
-#             break
+    '''
+    way = ''
+    for i in range(4):
+        # if root[i].tag indique "out of range" :
+        #     break
+            
+        if ('obs' in root[i].tag):
+            way = root[i].tag
+            break
      
-#     if way != '':               
-#         for i in range(4):
-#             for j in range(4):
-#                 if 'obs' in root[i][j]:
-#                     way = root[i][j]
-#                     break
+    if way != '':               
+        for i in range(4):
+            for j in range(4):
+                if ('obs' in root[i][j].tag):
+                    way = root[i][j].tag
+                    break
         
-#     if way != '':
-#         for i in range(4):
-#             for j in range(4):
-#                 for k in range(4):
-#                     if 'obs' in root[i][j][k]:
-#                         way = root[i][j][k]
-#                         break
+    if way != '':
+        for i in range(4):
+            for j in range(4):
+                for k in range(4):
+                    if 'obs' in root[i][j][k].tag:
+                        way = root[i][j][k].tag
+                        break
                     
                     
-#     if way=='':
-#         return 'Racine non trouvée'
-#     else:
-#         return way
+    if way=='':
+        return 'Racine non trouvée'
+    else:
+        return way
     
 
 #def delete_orientation():
@@ -110,6 +113,9 @@ def calcul_direction(dir_cercleD, dir_cercleG):
     None.
 
     '''
+    if dir_cercleD > 300:
+        dir_cercleD = dir_cercleD - 400
+    
     return dir_cercleD - (200 + dir_cercleD - dir_cercleG)/2
 
 
@@ -151,6 +157,9 @@ def calcul_direction_main(dicI, dicII):
     '''
     dir_cercleD = float(dicI['val'])
     dir_cercleG = float(dicII['val'])
+    
+    if dir_cercleD > 300:
+        dir_cercleD = dir_cercleD - 400
     
     final = dir_cercleD - (200 + dir_cercleD - dir_cercleG)/2
     erreur_tourillonnement = abs(dir_cercleD - final)
