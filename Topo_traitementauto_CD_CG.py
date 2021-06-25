@@ -89,7 +89,9 @@ def delete_element():
 #         return way
     
 
-#def delete_orientation():
+def delete_orientation():
+    if 2<3:
+        return "blabla"
     
 #def delete_ouverture():
     
@@ -133,7 +135,7 @@ if __name__ == "__main__":
     #tree2 = ET.parse(path2)
     root = tree.getroot()
 
-    #make_xml().write(sys.stdout) 
+    make_xml().write(sys.stdout) 
     
     
     #fichier = np.genfromtxt("C:/Users/Utilisateur/Desktop/ENSG/Stage/Stage_ING2/Stage_corse_maxime_seguin/Part1_StVictorLaCoste/Traitement_donnees/Chapelle_StMartin/Topo/STMARTIN_M.xml")
