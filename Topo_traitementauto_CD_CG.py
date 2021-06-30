@@ -197,14 +197,15 @@ def calcul_z_angle_main(dicI, dicII):
 if __name__ == "__main__":
 
    
-    # path0 = 'test.xml'
-    # path1 = 'basic.xml'
-    # path2 = 'STMARTIN_M.xml'
-    # #tree = ET.fromstring(path)
+    path = sys.argv[1] # récupération du nom de fichier à partir de la ligne de commande
+    path0 = 'test.xml'
+    path1 = 'basic.xml'
+    path2 = 'STMARTIN_M.xml'
+    #tree = ET.fromstring(path)
 
-    # tree = ET.parse(path2)
-    # #tree2 = ET.parse(path2)
-    # root = tree.getroot()
+    tree = ET.parse(path)
+    #tree2 = ET.parse(path2)
+    root = tree.getroot()
 
     # #make_xml().write(sys.stdout) 
     
