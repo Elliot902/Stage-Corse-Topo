@@ -48,45 +48,48 @@ def delete_element():
     return None
     
 
-# def FindWayObs(fichierXML,root):
-#     '''
+def FindWayObs(root):
+    '''
 
-#     Parameters
-#     ----------
-#     fichierXML : TYPE : .xml
-#         DESCRIPTION : fichier à traiter
+    Parameters
+    ----------
+    fichierXML : TYPE : 
+        DESCRIPTION : 
 
-#     Returns : Racine de la première observation
-#     -------
-#     None.
+    Returns : Racine de la première observation
+    -------
+    None.
 
-#     '''
-#     way = ''
-#     for i in range(4):
-#         if 'obs' in root[i]:
-#             way = root[i]
-#             break
+    '''
+    way = ''
+    for i in range(4):
+        # if root[i].tag indique "out of range" :
+        #     break
+            
+        if ('obs' in root[i].tag):
+            way = root[i].tag
+            break
      
-#     if way != '':               
-#         for i in range(4):
-#             for j in range(4):
-#                 if 'obs' in root[i][j]:
-#                     way = root[i][j]
-#                     break
+    if way != '':               
+        for i in range(4):
+            for j in range(4):
+                if ('obs' in root[i][j].tag):
+                    way = root[i][j].tag
+                    break
         
-#     if way != '':
-#         for i in range(4):
-#             for j in range(4):
-#                 for k in range(4):
-#                     if 'obs' in root[i][j][k]:
-#                         way = root[i][j][k]
-#                         break
+    if way != '':
+        for i in range(4):
+            for j in range(4):
+                for k in range(4):
+                    if 'obs' in root[i][j][k].tag:
+                        way = root[i][j][k].tag
+                        break
                     
                     
-#     if way=='':
-#         return 'Racine non trouvée'
-#     else:
-#         return way
+    if way=='':
+        return 'Racine non trouvée'
+    else:
+        return way
     
 
 #def delete_orientation():
@@ -96,20 +99,90 @@ def delete_element():
 #def delete_fermeture():
 
 def calcul_direction(dir_cercleD, dir_cercleG):
+    '''
+
+    Parameters
+    ----------
+    dir_cercleD : TYPE : float
+        DESCRIPTION : angle horizontal en cercle droit
+    dir_cercleG : TYPE : float
+        DESCRIPTION : angle horizontal en cercle gauche
+
+    Returns : angle horizontal unique corrigé de l'erreur de tourillonnement'
+    -------
+    None.
+
+    '''
+    if dir_cercleD > 300:
+        dir_cercleD = dir_cercleD - 400
+    
     return dir_cercleD - (200 + dir_cercleD - dir_cercleG)/2
 
+
+
 def calcul_z_angle(vert_cercleD, vert_cercleG):
+    '''
+
+    Parameters
+    ----------
+    vert_cercleD : TYPE : float
+        DESCRIPTION : angle vertical en cercle droit
+    vert_cercleG : TYPE : float
+        DESCRIPTION : angle vertical en cercle gauche
+
+    Returns : angle vertical unique corrigé de l'erreur de tourillonnement'
+    -------
+    None.
+
+    '''
     return vert_cercleD + (400 - vert_cercleD - vert_cercleG)/2
 
+
+
+
 def calcul_direction_main(dicI, dicII):
+    '''
+
+    Parameters
+    ----------
+    dicI : TYPE : dictionnaire'
+        DESCRIPTION : dictionnaire de la mesure d'angle horizontal en cercle droit
+    dicII : TYPE : dictionnaire
+        DESCRIPTION : dictionnaire de la mesure d'angle horizontal en cercle gauche
+
+    Returns : (angle horizontal unique corrigé de l'erreur de tourillonnement, écart avec angle cerle droit)'
+    -------
+    None.
+
+    '''
     dir_cercleD = float(dicI['val'])
     dir_cercleG = float(dicII['val'])
     
+    if dir_cercleD > 300:
+        dir_cercleD = dir_cercleD - 400
+    
     final = dir_cercleD - (200 + dir_cercleD - dir_cercleG)/2
     erreur_tourillonnement = abs(dir_cercleD - final)
+    
     return (final,erreur_tourillonnement)
 
+
+
 def calcul_z_angle_main(dicI, dicII):
+    '''
+
+    Parameters
+    ----------
+    dicI : TYPE : dictionnaire'
+        DESCRIPTION : dictionnaire de la mesure d'angle vertical en cercle droit
+    dicII : TYPE : dictionnaire
+        DESCRIPTION : dictionnaire de la mesure d'angle vertical en cercle gauche
+
+    Returns : (angle vertical unique corrigé de l'erreur de tourillonnement, écart avec angle cerle droit)'
+    -------
+    None.
+
+    '''
     vert_cercleD = float(dicI['val'])
     vert_cercleG = float(dicII['val'])
     
@@ -134,14 +207,30 @@ if __name__ == "__main__":
     #tree2 = ET.parse(path2)
     root = tree.getroot()
 
-    #make_xml().write(sys.stdout) 
+    # #make_xml().write(sys.stdout) 
     
     
-    #fichier = np.genfromtxt("C:/Users/Utilisateur/Desktop/ENSG/Stage/Stage_ING2/Stage_corse_maxime_seguin/Part1_StVictorLaCoste/Traitement_donnees/Chapelle_StMartin/Topo/STMARTIN_M.xml")
+    # #fichier = np.genfromtxt("C:/Users/Utilisateur/Desktop/ENSG/Stage/Stage_ING2/Stage_corse_maxime_seguin/Part1_StVictorLaCoste/Traitement_donnees/Chapelle_StMartin/Topo/STMARTIN_M.xml")
     
     
     
-    #D:\obj\windows-release\37amd64_Release\msi_python\zip_amd64\ElementTree.py
+    # #D:\obj\windows-release\37amd64_Release\msi_python\zip_amd64\ElementTree.py
     
+    # #Chemin vers les packages xml de python 3.9
+    # #C:\Users\Utilisateur\AppData\Local\Programs\Python\Python39\Lib\xml
+    
+    import xml.etree.cElementTree as ET
+    
+    root = ET.Element("root")
+    doc = ET.SubElement(root, "doc")
+    
+    ET.SubElement(doc, "field1", name="blah").text = "some value1"
+    ET.SubElement(doc, "field2", name="asdfasd").text = "some vlaue2"
+    
+<<<<<<< HEAD
     #Chemin vers les packages xml de python 3.9
     #C:\Users\Utilisateur\AppData\Local\Programs\Python\Python39\Lib\xml   
+=======
+    tree = ET.ElementTree(root)
+    tree.write("filename.xml")
+>>>>>>> develop
