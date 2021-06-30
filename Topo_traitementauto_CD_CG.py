@@ -197,23 +197,34 @@ def calcul_z_angle_main(dicI, dicII):
 if __name__ == "__main__":
 
    
-    path0 = 'test.xml'
-    path1 = 'basic.xml'
-    path2 = 'STMARTIN_M.xml'
-    #tree = ET.fromstring(path)
+    # path0 = 'test.xml'
+    # path1 = 'basic.xml'
+    # path2 = 'STMARTIN_M.xml'
+    # #tree = ET.fromstring(path)
 
-    tree = ET.parse(path2)
-    #tree2 = ET.parse(path2)
-    root = tree.getroot()
+    # tree = ET.parse(path2)
+    # #tree2 = ET.parse(path2)
+    # root = tree.getroot()
 
-    #make_xml().write(sys.stdout) 
+    # #make_xml().write(sys.stdout) 
     
     
-    #fichier = np.genfromtxt("C:/Users/Utilisateur/Desktop/ENSG/Stage/Stage_ING2/Stage_corse_maxime_seguin/Part1_StVictorLaCoste/Traitement_donnees/Chapelle_StMartin/Topo/STMARTIN_M.xml")
+    # #fichier = np.genfromtxt("C:/Users/Utilisateur/Desktop/ENSG/Stage/Stage_ING2/Stage_corse_maxime_seguin/Part1_StVictorLaCoste/Traitement_donnees/Chapelle_StMartin/Topo/STMARTIN_M.xml")
     
     
     
-    #D:\obj\windows-release\37amd64_Release\msi_python\zip_amd64\ElementTree.py
+    # #D:\obj\windows-release\37amd64_Release\msi_python\zip_amd64\ElementTree.py
     
-    #Chemin vers les packages xml de python 3.9
-    #C:\Users\Utilisateur\AppData\Local\Programs\Python\Python39\Lib\xml   
+    # #Chemin vers les packages xml de python 3.9
+    # #C:\Users\Utilisateur\AppData\Local\Programs\Python\Python39\Lib\xml
+    
+    import xml.etree.cElementTree as ET
+    
+    root = ET.Element("root")
+    doc = ET.SubElement(root, "doc")
+    
+    ET.SubElement(doc, "field1", name="blah").text = "some value1"
+    ET.SubElement(doc, "field2", name="asdfasd").text = "some vlaue2"
+    
+    tree = ET.ElementTree(root)
+    tree.write("filename.xml")
