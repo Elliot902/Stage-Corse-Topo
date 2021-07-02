@@ -15,7 +15,6 @@ CONTEXTE : STAGE PLURIDISCIPLINAIRE ING2
 ##### IMPORT #####
 
 import sys
-#import xml.etree.ElementTree as ET
 from lxml import etree
 import numpy as np
 
@@ -198,8 +197,6 @@ if __name__ == "__main__":
 
    
     #path = sys.argv[1] # récupération du nom de fichier à partir de la ligne de commande
-    #path0 = 'test.xml'
-    #path1 = 'basic.xml'
     path = 'STMARTIN_M.xml'
     
     parser = etree.XMLParser()
@@ -213,24 +210,6 @@ if __name__ == "__main__":
             print(zangle.attrib['val'])
 
 
-    # #make_xml().write(sys.stdout) 
-    
-    
-    # #fichier = np.genfromtxt("C:/Users/Utilisateur/Desktop/ENSG/Stage/Stage_ING2/Stage_corse_maxime_seguin/Part1_StVictorLaCoste/Traitement_donnees/Chapelle_StMartin/Topo/STMARTIN_M.xml")
-    
-    
-    
-    # #D:\obj\windows-release\37amd64_Release\msi_python\zip_amd64\ElementTree.py
-    
-    # #Chemin vers les packages xml de python 3.9
-    # #C:\Users\Utilisateur\AppData\Local\Programs\Python\Python39\Lib\xml
-    
-    #import xml.etree.cElementTree as ET
-    
-    #root = ET.Element("root")
-    #doc = ET.SubElement(root, "doc")
-    
-    #ET.SubElement(doc, "field1", name="blah").text = "some value1"
-    #ET.SubElement(doc, "field2", name="asdfasd").text = "some vlaue2"
+
     
 
