@@ -15,8 +15,8 @@ CONTEXTE : STAGE PLURIDISCIPLINAIRE ING2
 ##### IMPORT #####
 
 import sys
-import xml.etree.ElementTree as ET
-#from lxml import etree
+#import xml.etree.ElementTree as ET
+from lxml import etree
 import numpy as np
 
 
@@ -197,15 +197,21 @@ def calcul_z_angle_main(dicI, dicII):
 if __name__ == "__main__":
 
    
-    path = sys.argv[1] # récupération du nom de fichier à partir de la ligne de commande
-    path0 = 'test.xml'
-    path1 = 'basic.xml'
-    path2 = 'STMARTIN_M.xml'
-    #tree = ET.fromstring(path)
-
-    tree = ET.parse(path)
-    #tree2 = ET.parse(path2)
+    #path = sys.argv[1] # récupération du nom de fichier à partir de la ligne de commande
+    #path0 = 'test.xml'
+    #path1 = 'basic.xml'
+    path = 'STMARTIN_M.xml'
+    
+    parser = etree.XMLParser()
+    tree = etree.parse(path, parser)
     root = tree.getroot()
+    namespaces = {'ns':'http://www.gnu.org/software/gama/gama-local'}
+    for obs in root.xpath('//ns:obs', namespaces=namespaces):
+        for direction in obs.xpath('ns:direction', namespaces=namespaces):
+            print(direction.attrib['val'])
+        for zangle in obs.xpath('ns:z-angle', namespaces=namespaces):
+            print(zangle.attrib['val'])
+
 
     # #make_xml().write(sys.stdout) 
     
@@ -219,18 +225,12 @@ if __name__ == "__main__":
     # #Chemin vers les packages xml de python 3.9
     # #C:\Users\Utilisateur\AppData\Local\Programs\Python\Python39\Lib\xml
     
-    import xml.etree.cElementTree as ET
+    #import xml.etree.cElementTree as ET
     
-    root = ET.Element("root")
-    doc = ET.SubElement(root, "doc")
+    #root = ET.Element("root")
+    #doc = ET.SubElement(root, "doc")
     
-    ET.SubElement(doc, "field1", name="blah").text = "some value1"
-    ET.SubElement(doc, "field2", name="asdfasd").text = "some vlaue2"
+    #ET.SubElement(doc, "field1", name="blah").text = "some value1"
+    #ET.SubElement(doc, "field2", name="asdfasd").text = "some vlaue2"
     
-<<<<<<< HEAD
-    #Chemin vers les packages xml de python 3.9
-    #C:\Users\Utilisateur\AppData\Local\Programs\Python\Python39\Lib\xml   
-=======
-    tree = ET.ElementTree(root)
-    tree.write("filename.xml")
->>>>>>> develop
+
