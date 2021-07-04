@@ -204,12 +204,26 @@ if __name__ == "__main__":
     root = tree.getroot()
     namespaces = {'ns':'http://www.gnu.org/software/gama/gama-local'}
     for obs in root.xpath('//ns:obs', namespaces=namespaces):
-        for direction in obs.xpath('ns:direction', namespaces=namespaces):
-            print(direction.attrib['val'])
-        for zangle in obs.xpath('ns:z-angle', namespaces=namespaces):
-            print(zangle.attrib['val'])
-
-
+        print(obs.attrib['from'])
+        
+        direction = obs.xpath('ns:direction', namespaces=namespaces)
+        #print(direction[0].attrib['val'])
+        #toto = direction[0].getnext()
+        #print(toto.attrib['val'])
+        for i in range(0,len(direction)-1):
+            if (direction[i].attrib['to'] == direction[i+1].attrib['to'] and direction[i].attrib['to_dh'] == direction[i+1].attrib['to_dh']):
+                
+                print(direction[i].attrib['val'])
+                print(direction[i+1].attrib['val'])
+#
+#        for direction in obs.xpath('ns:direction', namespaces=namespaces):
+#            print(direction.attrib['val'])
+#            direction.getnext()
+#            print(direction.attrib['val'])
+#        for zangle in obs.xpath('ns:z-angle', namespaces=namespaces):
+#            print(zangle.attrib['val'])
+    
+   
 
     
 
