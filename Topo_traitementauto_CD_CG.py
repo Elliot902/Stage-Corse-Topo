@@ -112,10 +112,21 @@ def calcul_direction(dir_cercleD, dir_cercleG):
     None.
 
     '''
-    if dir_cercleD > 300:
-        dir_cercleD = dir_cercleD - 400
+    dir_cercle = float()
     
-    return dir_cercleD - (200 + dir_cercleD - dir_cercleG)/2
+    if dir_cercleD < 200:
+        dir_cercle = (dir_cercleG+dir_cercleD - 200)/2
+    
+    if dir_cercleD > 200:
+        dir_cercle = (dir_cercleG+dir_cercleD + 200)/2
+        
+    if (dir_cercleD == 200 and dir_cercleG > 200):
+        dir_cercle = (dir_cercleG + dir_cercleD - 200)/2
+    
+    if (dir_cercleD == 200 and dir_cercleG < 200):
+        dir_cercle = (dir_cercleG + dir_cercleD + 200)/2
+    
+    return dir_cercle
 
 
 
