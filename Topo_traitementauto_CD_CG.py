@@ -77,7 +77,11 @@ def calcul_z_angle(vert_cercleD, vert_cercleG):
     None.
 
     '''
-    return vert_cercleD + (400 - vert_cercleD - vert_cercleG)/2
+    zAngle = float()
+    
+    zAngle = vert_cercleD + (400 - vert_cercleD - vert_cercleG)/2
+    
+    return np.round(zAngle, decimals=4)
 
 
 
@@ -111,17 +115,13 @@ if __name__ == "__main__":
                 fichierSortie.write('" to_dh="'+direction[i].attrib['to_dh']+'" />\n')
                 
                 fichierSortie.write('<z-angle to="'+zAngle[i].attrib['to']+'" val="')
-                fichierSortie.write(str())
+                fichierSortie.write(str(calcul_z_angle(float(zAngle[i].attrib['val']),float(zAngle[i+1].attrib['val']))))
                 fichierSortie.write('" to_dh="'+zAngle[i].attrib['to_dh']+'" />\n')
             
                 fichierSortie.write('<s-distance to="'+sDistance[i].attrib['to']+'" val="')
                 fichierSortie.write(str(np.round((float(sDistance[i].attrib['val'])+float(sDistance[i+1].attrib['val']))/2, decimals=3)))
                 fichierSortie.write('" to_dh="'+sDistance[i].attrib['to_dh']+'" />\n')
                 
-        
-        
-#        for zangle in obs.xpath('ns:z-angle', namespaces=namespaces):
-#            print(zangle.attrib['val'])
         fichierSortie.write('</obs>\n')
     fichierSortie.close()
 
