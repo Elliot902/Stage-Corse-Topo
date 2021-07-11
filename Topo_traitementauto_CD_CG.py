@@ -22,10 +22,6 @@ import numpy as np
 
 
 
-
-##### EXTRACTION FICHIER #####
-
-
 ##### FONCTIONS #####
 
 
