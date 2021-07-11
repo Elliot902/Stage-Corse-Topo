@@ -2,7 +2,7 @@
 """
 Created on Tue Jun 22 10:24:17 2021
 
-@author: Elliot Luçon
+@author: Elliot Luçon (ENSG) & Maxime Seguin (MC - DRAC de Corse)
 """
 
 '''
@@ -16,6 +16,7 @@ CONTEXTE : STAGE PLURIDISCIPLINAIRE ING2
 
 import sys
 from lxml import etree
+from lxml import builder # pour construire un fichier XML
 import numpy as np
 
 
@@ -27,75 +28,6 @@ import numpy as np
 
 ##### FONCTIONS #####
 
-
-def make_xml():
-    node = ET.Element('foo')
-    node.text = 'bar'
-    doc = ET.ElementTree(node)
-    return doc
-
-def delete_element():
-    path1 = 'basic.xml'
-    tree = ET.parse(path1)
-    root = tree.getroot()
-    
-    for direction in root[0][2][0].findall('direction'):
-        root[0][2][0].remove(direction)
-        print('New action')
-    tree.write('evolution.xml')
-
-    return None
-    
-
-def FindWayObs(root):
-    '''
-
-    Parameters
-    ----------
-    fichierXML : TYPE : 
-        DESCRIPTION : 
-
-    Returns : Racine de la première observation
-    -------
-    None.
-
-    '''
-    way = ''
-    for i in range(4):
-        # if root[i].tag indique "out of range" :
-        #     break
-            
-        if ('obs' in root[i].tag):
-            way = root[i].tag
-            break
-     
-    if way != '':               
-        for i in range(4):
-            for j in range(4):
-                if ('obs' in root[i][j].tag):
-                    way = root[i][j].tag
-                    break
-        
-    if way != '':
-        for i in range(4):
-            for j in range(4):
-                for k in range(4):
-                    if 'obs' in root[i][j][k].tag:
-                        way = root[i][j][k].tag
-                        break
-                    
-                    
-    if way=='':
-        return 'Racine non trouvée'
-    else:
-        return way
-    
-
-#def delete_orientation():
-    
-#def delete_ouverture():
-    
-#def delete_fermeture():
 
 def calcul_direction(dir_cercleD, dir_cercleG):
     '''
@@ -149,61 +81,6 @@ def calcul_z_angle(vert_cercleD, vert_cercleG):
 
 
 
-
-def calcul_direction_main(dicI, dicII):
-    '''
-
-    Parameters
-    ----------
-    dicI : TYPE : dictionnaire'
-        DESCRIPTION : dictionnaire de la mesure d'angle horizontal en cercle droit
-    dicII : TYPE : dictionnaire
-        DESCRIPTION : dictionnaire de la mesure d'angle horizontal en cercle gauche
-
-    Returns : (angle horizontal unique corrigé de l'erreur de tourillonnement, écart avec angle cerle droit)'
-    -------
-    None.
-
-    '''
-    dir_cercleD = float(dicI['val'])
-    dir_cercleG = float(dicII['val'])
-    
-    if dir_cercleD > 300:
-        dir_cercleD = dir_cercleD - 400
-    
-    final = dir_cercleD - (200 + dir_cercleD - dir_cercleG)/2
-    erreur_tourillonnement = abs(dir_cercleD - final)
-    
-    return (final,erreur_tourillonnement)
-
-
-
-def calcul_z_angle_main(dicI, dicII):
-    '''
-
-    Parameters
-    ----------
-    dicI : TYPE : dictionnaire'
-        DESCRIPTION : dictionnaire de la mesure d'angle vertical en cercle droit
-    dicII : TYPE : dictionnaire
-        DESCRIPTION : dictionnaire de la mesure d'angle vertical en cercle gauche
-
-    Returns : (angle vertical unique corrigé de l'erreur de tourillonnement, écart avec angle cerle droit)'
-    -------
-    None.
-
-    '''
-    vert_cercleD = float(dicI['val'])
-    vert_cercleG = float(dicII['val'])
-    
-    final = vert_cercleD + (400 - vert_cercleD - vert_cercleG)/2
-    erreur_tourillonnement = abs(vert_cercleD - final)
-    return (final,erreur_tourillonnement)
-
-
-
-
-
 if __name__ == "__main__":
 
    
@@ -219,33 +96,33 @@ if __name__ == "__main__":
     root = tree.getroot()
     namespaces = {'ns':'http://www.gnu.org/software/gama/gama-local'}
     for obs in root.xpath('//ns:obs', namespaces=namespaces):
-        print(obs.attrib['from'])
+
+        fichierSortie.write('<obs from="'+obs.attrib['from']+'" from_dh="'+obs.attrib['from_dh']+'">\n')
         
         direction = obs.xpath('ns:direction', namespaces=namespaces)
-        #print(direction[0].attrib['val'])
-        #toto = direction[0].getnext()
-        #print(toto.attrib['val'])
+        zAngle = obs.xpath('ns:z-angle', namespaces=namespaces)
+        sDistance = obs.xpath('ns:s-distance', namespaces=namespaces)
+
         for i in range(0,len(direction)-1):
             if (direction[i].attrib['to'] == direction[i+1].attrib['to'] and direction[i].attrib['to_dh'] == direction[i+1].attrib['to_dh']):
                 
-                print(direction[i].attrib['val'])
-                print(direction[i+1].attrib['val'])
-                
-                fichierSortie.write('<direction to="')
-                fichierSortie.write(direction[i].attrib['to'])
-                fichierSortie.write('" val="')
+                fichierSortie.write('<direction to="'+direction[i].attrib['to']+'" val="')
                 fichierSortie.write(str(calcul_direction(float(direction[i].attrib['val']),float(direction[i+1].attrib['val']))))
-                fichierSortie.write('" to_dh="')
-                fichierSortie.write(direction[i].attrib['to_dh'])
-                fichierSortie.write('" />\n')
-#
-#        for direction in obs.xpath('ns:direction', namespaces=namespaces):
-#            print(direction.attrib['val'])
-#            direction.getnext()
-#            print(direction.attrib['val'])
+                fichierSortie.write('" to_dh="'+direction[i].attrib['to_dh']+'" />\n')
+                
+                fichierSortie.write('<z-angle to="'+zAngle[i].attrib['to']+'" val="')
+                fichierSortie.write(str())
+                fichierSortie.write('" to_dh="'+zAngle[i].attrib['to_dh']+'" />\n')
+            
+                fichierSortie.write('<s-distance to="'+sDistance[i].attrib['to']+'" val="')
+                fichierSortie.write(str(np.round((float(sDistance[i].attrib['val'])+float(sDistance[i+1].attrib['val']))/2, decimals=3)))
+                fichierSortie.write('" to_dh="'+sDistance[i].attrib['to_dh']+'" />\n')
+                
+        
+        
 #        for zangle in obs.xpath('ns:z-angle', namespaces=namespaces):
 #            print(zangle.attrib['val'])
-    
+        fichierSortie.write('</obs>\n')
     fichierSortie.close()
 
     
