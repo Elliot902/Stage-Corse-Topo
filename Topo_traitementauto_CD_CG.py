@@ -126,7 +126,7 @@ def calcul_direction(dir_cercleD, dir_cercleG):
     if (dir_cercleD == 200 and dir_cercleG < 200):
         dir_cercle = (dir_cercleG + dir_cercleD + 200)/2
     
-    return dir_cercle
+    return np.round(dir_cercle, decimals=4)
 
 
 
@@ -210,6 +210,10 @@ if __name__ == "__main__":
     #path = sys.argv[1] # récupération du nom de fichier à partir de la ligne de commande
     path = 'STMARTIN_M.xml'
     
+    #fichierResultat = sys.argv[2] # récupération du nom de fichier de sortie
+    nomFichierResultat = 'resultat.xml'
+    fichierSortie = open(nomFichierResultat,'w')
+    
     parser = etree.XMLParser()
     tree = etree.parse(path, parser)
     root = tree.getroot()
@@ -226,6 +230,14 @@ if __name__ == "__main__":
                 
                 print(direction[i].attrib['val'])
                 print(direction[i+1].attrib['val'])
+                
+                fichierSortie.write('<direction to="')
+                fichierSortie.write(direction[i].attrib['to'])
+                fichierSortie.write('" val="')
+                fichierSortie.write(str(calcul_direction(float(direction[i].attrib['val']),float(direction[i+1].attrib['val']))))
+                fichierSortie.write('" to_dh="')
+                fichierSortie.write(direction[i].attrib['to_dh'])
+                fichierSortie.write('" />\n')
 #
 #        for direction in obs.xpath('ns:direction', namespaces=namespaces):
 #            print(direction.attrib['val'])
@@ -234,7 +246,7 @@ if __name__ == "__main__":
 #        for zangle in obs.xpath('ns:z-angle', namespaces=namespaces):
 #            print(zangle.attrib['val'])
     
-   
+    fichierSortie.close()
 
     
 
