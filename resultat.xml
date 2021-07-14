@@ -1,13 +1,35 @@
-<direction to="S1" val="99.9988" to_dh="1.440" />
+<obs from="S2" from_dh="1.594">
 <direction to="S1" val="399.9984" to_dh="1.440" />
+<z-angle to="S1" val="100.2675" to_dh="1.440" />
+<s-distance to="S1" val="7.227" to_dh="1.440" />
 <direction to="S3" val="144.2695" to_dh="0.000" />
-<direction to="S2" val="100.0" to_dh="1.594" />
+<z-angle to="S3" val="103.0132" to_dh="0.000" />
+<s-distance to="S3" val="13.762" to_dh="0.000" />
+</obs>
+<obs from="S3" from_dh="0.000">
 <direction to="S2" val="400.001" to_dh="1.594" />
+<z-angle to="S2" val="96.9878" to_dh="1.594" />
+<s-distance to="S2" val="13.762" to_dh="1.594" />
 <direction to="S4" val="55.235" to_dh="0.000" />
-<direction to="S3" val="-99.9999" to_dh="0.000" />
+<z-angle to="S4" val="99.383" to_dh="0.000" />
+<s-distance to="S4" val="16.038" to_dh="0.000" />
+</obs>
+<obs from="S4" from_dh="0.000">
 <direction to="S3" val="0.0016" to_dh="0.000" />
+<z-angle to="S3" val="100.6177" to_dh="0.000" />
+<s-distance to="S3" val="16.038" to_dh="0.000" />
 <direction to="S1" val="100.3932" to_dh="1.645" />
-<direction to="S4" val="-99.9996" to_dh="0.000" />
+<z-angle to="S1" val="95.9243" to_dh="1.645" />
+<s-distance to="S1" val="10.456" to_dh="1.645" />
+</obs>
+<obs from="S1" from_dh="1.645">
 <direction to="S4" val="0.002" to_dh="0.000" />
+<z-angle to="S4" val="104.0762" to_dh="0.000" />
+<s-distance to="S4" val="10.456" to_dh="0.000" />
 <direction to="S2" val="100.0863" to_dh="1.553" />
+<z-angle to="S2" val="101.8807" to_dh="1.553" />
+<s-distance to="S2" val="7.217" to_dh="1.553" />
 <direction to="S4" val="0.0043" to_dh="0.000" />
+<z-angle to="S4" val="104.0762" to_dh="0.000" />
+<s-distance to="S4" val="10.456" to_dh="0.000" />
+</obs>
