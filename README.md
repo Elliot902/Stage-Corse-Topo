@@ -8,6 +8,5 @@ Dans cette première version, preGama prend en compte uniquement les paires comp
 ## Evolutions futures
 - [ ] Prise en compte des séquences de tour d'horizon avec contrôle de la fermeture angulaire et répartition de l'erreur de fermeture
 - [ ] Correction des mesures de distance (température, pression atmosphérique, humidité relative, altitude)
-- [ ] Prise en compte d'un coefficient de réfraction (conversion des distances selon la pente <s-distance /> en distances horizontales corrigées <distance />)
 - [ ] Conversion des résultats d'ajustement en fichier SIG (Shapelfile ?) pour la visualisation du réseau et des ellipses d'erreur (script postGama ?)
 - [ ] Simulation de réseau à partir d'un fichier SIG ou DXF : conversion en XML du dessin du réseau et simulation d'une série de mesures (script simuGama ?)
