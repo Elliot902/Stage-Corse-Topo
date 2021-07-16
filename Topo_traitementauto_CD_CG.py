@@ -103,7 +103,9 @@ if __name__ == "__main__":
         zAngle = obs.xpath('ns:z-angle', namespaces=namespaces)
         sDistance = obs.xpath('ns:s-distance', namespaces=namespaces)
 
-        for i in range(0,len(direction)-1):
+        global i # définition de l'incrément de boucle en variable global pour récupérer son état pour le dernier test
+        i = int(0)
+        while i < len(direction)-1:
             if (direction[i].attrib['to'] == direction[i+1].attrib['to'] and direction[i].attrib['to_dh'] == direction[i+1].attrib['to_dh']):
                 
                 fichierSortie.write('<direction to="'+direction[i].attrib['to']+'" val="')
@@ -118,7 +120,23 @@ if __name__ == "__main__":
                 fichierSortie.write(str(np.round((float(sDistance[i].attrib['val'])+float(sDistance[i+1].attrib['val']))/2, decimals=3)))
                 fichierSortie.write('" to_dh="'+sDistance[i].attrib['to_dh']+'" />\n')
                 
+                i += 2
+                
+            else:
+                
+                fichierSortie.write('<direction to="'+direction[i].attrib['to']+'" val="'+direction[i].attrib['val']+'" to_dh="'+direction[i].attrib['to_dh']+'" />\n')                
+                fichierSortie.write('<z-angle to="'+zAngle[i].attrib['to']+'" val="'+zAngle[i].attrib['val']+'" to_dh="'+zAngle[i].attrib['to_dh']+'" />\n')
+                fichierSortie.write('<s-distance to="'+sDistance[i].attrib['to']+'" val="'+sDistance[i].attrib['val']+'" to_dh="'+sDistance[i].attrib['to_dh']+'" />\n')
+                
+                i += 1
+                
+        if i == len(direction)-1: # dernier test
+            fichierSortie.write('<direction to="'+direction[i].attrib['to']+'" val="'+direction[i].attrib['val']+'" to_dh="'+direction[i].attrib['to_dh']+'" />\n')                
+            fichierSortie.write('<z-angle to="'+zAngle[i].attrib['to']+'" val="'+zAngle[i].attrib['val']+'" to_dh="'+zAngle[i].attrib['to_dh']+'" />\n')
+            fichierSortie.write('<s-distance to="'+sDistance[i].attrib['to']+'" val="'+sDistance[i].attrib['val']+'" to_dh="'+sDistance[i].attrib['to_dh']+'" />\n')
+            
         fichierSortie.write('</obs>\n')
+
     fichierSortie.close()
 
     

@@ -17,10 +17,6 @@
 <points-observations direction-stdev="0.001" zenith-angle-stdev="0.001" distance-stdev = "2 2 1" >
 
 <obs from="S2" from_dh="1.594">
-  <direction to="S1" val="0.0000" to_dh="1.440" />
-  <z-angle to="S1" val="100.2710" to_dh="1.440" />
-  <s-distance to="S1" val="7.227" to_dh="1.440" />
-  <!-- ATR="On" EDM-Measure-mode="Standard" EDM-type="Dist infra" Prism-type="Prisme Ron" -->
   <direction to="S1" val="399.9975" to_dh="1.440" />
   <z-angle to="S1" val="100.2710" to_dh="1.440" />
   <s-distance to="S1" val="7.227" to_dh="1.440" />
@@ -49,10 +45,6 @@
   <z-angle to="P4" val="111.1789" to_dh="0.000" />
   <s-distance to="P4" val="5.376" to_dh="0.000" />
   <!-- ATR="Off" EDM-Measure-mode="Standard" EDM-type="Laser Roug" Prism-type="Aucun" -->
-  <direction to="S1" val="399.9947" to_dh="1.440" />
-  <z-angle to="S1" val="100.2700" to_dh="1.440" />
-  <s-distance to="S1" val="7.226" to_dh="1.440" />
-  <!-- ATR="On" EDM-Measure-mode="Standard" EDM-type="Dist infra" Prism-type="Prisme Ron" -->
   <direction to="P1" val="53.7676" to_dh="0.000" />
   <z-angle to="P1" val="29.2081" to_dh="0.000" />
   <s-distance to="P1" val="6.735" to_dh="0.000" />
@@ -64,10 +56,6 @@
 </obs>
 
 <obs from="S3" from_dh="0.000">
-  <direction to="S2" val="0.0000" to_dh="1.594" />
-  <z-angle to="S2" val="96.9922" to_dh="1.594" />
-  <s-distance to="S2" val="13.762" to_dh="1.594" />
-  <!-- ATR="Off" EDM-Measure-mode="Standard" EDM-type="Dist infra" Prism-type="Prisme Ron" -->
   <direction to="S2" val="400.0000" to_dh="1.594" />
   <z-angle to="S2" val="96.9922" to_dh="1.594" />
   <s-distance to="S2" val="13.762" to_dh="1.594" />
@@ -91,10 +79,6 @@
 </obs>
 
 <obs from="S4" from_dh="0.000">
-  <direction to="S3" val="0.0000" to_dh="0.000" />
-  <z-angle to="S3" val="100.6200" to_dh="0.000" />
-  <s-distance to="S3" val="16.038" to_dh="0.000" />
-  <!-- ATR="Off" EDM-Measure-mode="Standard" EDM-type="Dist infra" Prism-type="Prisme Ron" -->
   <direction to="S3" val="0.0002" to_dh="0.000" />
   <z-angle to="S3" val="100.6212" to_dh="0.000" />
   <s-distance to="S3" val="16.038" to_dh="0.000" />
@@ -130,10 +114,6 @@
 </obs>
 
 <obs from="S1" from_dh="1.645">
-  <direction to="S4" val="0.0000" to_dh="0.000" />
-  <z-angle to="S4" val="104.0796" to_dh="0.000" />
-  <s-distance to="S4" val="10.456" to_dh="0.000" />
-  <!-- ATR="On" EDM-Measure-mode="Standard" EDM-type="Dist infra" Prism-type="Prisme Ron" -->
   <direction to="S4" val="0.0007" to_dh="0.000" />
   <z-angle to="S4" val="104.0797" to_dh="0.000" />
   <s-distance to="S4" val="10.456" to_dh="0.000" />
