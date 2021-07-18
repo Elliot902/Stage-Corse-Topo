@@ -16,7 +16,7 @@ CONTEXTE : STAGE PLURIDISCIPLINAIRE ING2
 
 import sys
 from lxml import etree
-from lxml import builder # pour construire un fichier XML
+#from lxml import builder # pour construire un fichier XML
 import numpy as np
 
 
@@ -84,15 +84,24 @@ def calcul_z_angle(vert_cercleD, vert_cercleG):
 if __name__ == "__main__":
 
    
-    #path = sys.argv[1] # récupération du nom de fichier à partir de la ligne de commande
-    path = 'STMARTIN_M.xml'
+    #nomFichierEntree = sys.argv[1] # récupération du nom de fichier à partir de la ligne de commande
+    nomFichierEntree = 'STMARTIN_M.xml'
+    fichierEntree = open(nomFichierEntree, 'r')
     
     #fichierResultat = sys.argv[2] # récupération du nom de fichier de sortie
     nomFichierResultat = 'resultat.xml'
     fichierSortie = open(nomFichierResultat,'w')
     
+    while True:
+        ligneFichierEntree = fichierEntree.readline()
+        if ligneFichierEntree.strip() != """<obs from="S2" from_dh="1.594">""":
+            fichierSortie.write(ligneFichierEntree.strip())
+        else:
+            break;
+    fichierEntree.close()
+    
     parser = etree.XMLParser()
-    tree = etree.parse(path, parser)
+    tree = etree.parse(nomFichierEntree, parser)
     root = tree.getroot()
     namespaces = {'ns':'http://www.gnu.org/software/gama/gama-local'}
     for obs in root.xpath('//ns:obs', namespaces=namespaces):
