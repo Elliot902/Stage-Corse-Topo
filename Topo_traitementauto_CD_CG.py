@@ -103,10 +103,11 @@ if __name__ == "__main__":
         zAngle = obs.xpath('ns:z-angle', namespaces=namespaces)
         sDistance = obs.xpath('ns:s-distance', namespaces=namespaces)
 
-        global i # définition de l'incrément de boucle en variable global pour récupérer son état pour le dernier test
+        global i # définition de l'incrément de boucle en variable globale pour récupérer sa valeur pour le dernier test
         i = int(0)
-        while i < len(direction)-1:
-            if (direction[i].attrib['to'] == direction[i+1].attrib['to'] and direction[i].attrib['to_dh'] == direction[i+1].attrib['to_dh']):
+        while i < len(direction)-1: 
+            # on vérifie que les deux mesures qui se suivent visent le même point, ont la même hauteur de prisme et sont bien un enchaînement cercle droit puis cercle gauche : différence entre les mesures horizontales égale à 200 gon
+            if (direction[i].attrib['to'] == direction[i+1].attrib['to'] and direction[i].attrib['to_dh'] == direction[i+1].attrib['to_dh'] and abs(round(float(direction[i+1].attrib['val'])-float(direction[i].attrib['val']))) == 200):
                 
                 fichierSortie.write('<direction to="'+direction[i].attrib['to']+'" val="')
                 fichierSortie.write(str(calcul_direction(float(direction[i].attrib['val']),float(direction[i+1].attrib['val']))))
