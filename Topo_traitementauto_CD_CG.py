@@ -90,15 +90,14 @@ if __name__ == "__main__":
     
     #fichierResultat = sys.argv[2] # récupération du nom de fichier de sortie
     nomFichierResultat = 'resultat.xml'
-    fichierSortie = open(nomFichierResultat,'w')
+    fichierSortie = open(nomFichierResultat, 'w')
     
     while True:
         ligneFichierEntree = fichierEntree.readline()
-        if ligneFichierEntree.strip() != """<obs from="S2" from_dh="1.594">""":
-            fichierSortie.write(ligneFichierEntree.strip())
+        if '<obs' in ligneFichierEntree.strip():
+            break
         else:
-            break;
-    fichierEntree.close()
+            fichierSortie.write(ligneFichierEntree)
     
     parser = etree.XMLParser()
     tree = etree.parse(nomFichierEntree, parser)
@@ -118,15 +117,15 @@ if __name__ == "__main__":
             # on vérifie que les deux mesures qui se suivent visent le même point, ont la même hauteur de prisme et sont bien un enchaînement cercle droit puis cercle gauche : différence entre les mesures horizontales égale à 200 gon
             if (direction[i].attrib['to'] == direction[i+1].attrib['to'] and direction[i].attrib['to_dh'] == direction[i+1].attrib['to_dh'] and abs(round(float(direction[i+1].attrib['val'])-float(direction[i].attrib['val']))) == 200):
                 
-                fichierSortie.write('<direction to="'+direction[i].attrib['to']+'" val="')
+                fichierSortie.write('    <direction to="'+direction[i].attrib['to']+'" val="')
                 fichierSortie.write(str(calcul_direction(float(direction[i].attrib['val']),float(direction[i+1].attrib['val']))))
                 fichierSortie.write('" to_dh="'+direction[i].attrib['to_dh']+'" />\n')
                 
-                fichierSortie.write('<z-angle to="'+zAngle[i].attrib['to']+'" val="')
+                fichierSortie.write('    <z-angle to="'+zAngle[i].attrib['to']+'" val="')
                 fichierSortie.write(str(calcul_z_angle(float(zAngle[i].attrib['val']),float(zAngle[i+1].attrib['val']))))
                 fichierSortie.write('" to_dh="'+zAngle[i].attrib['to_dh']+'" />\n')
             
-                fichierSortie.write('<s-distance to="'+sDistance[i].attrib['to']+'" val="')
+                fichierSortie.write('    <s-distance to="'+sDistance[i].attrib['to']+'" val="')
                 fichierSortie.write(str(np.round((float(sDistance[i].attrib['val'])+float(sDistance[i+1].attrib['val']))/2, decimals=3)))
                 fichierSortie.write('" to_dh="'+sDistance[i].attrib['to_dh']+'" />\n')
                 
@@ -134,19 +133,23 @@ if __name__ == "__main__":
                 
             else:
                 
-                fichierSortie.write('<direction to="'+direction[i].attrib['to']+'" val="'+direction[i].attrib['val']+'" to_dh="'+direction[i].attrib['to_dh']+'" />\n')                
-                fichierSortie.write('<z-angle to="'+zAngle[i].attrib['to']+'" val="'+zAngle[i].attrib['val']+'" to_dh="'+zAngle[i].attrib['to_dh']+'" />\n')
-                fichierSortie.write('<s-distance to="'+sDistance[i].attrib['to']+'" val="'+sDistance[i].attrib['val']+'" to_dh="'+sDistance[i].attrib['to_dh']+'" />\n')
+                fichierSortie.write('    <direction to="'+direction[i].attrib['to']+'" val="'+direction[i].attrib['val']+'" to_dh="'+direction[i].attrib['to_dh']+'" />\n')                
+                fichierSortie.write('    <z-angle to="'+zAngle[i].attrib['to']+'" val="'+zAngle[i].attrib['val']+'" to_dh="'+zAngle[i].attrib['to_dh']+'" />\n')
+                fichierSortie.write('    <s-distance to="'+sDistance[i].attrib['to']+'" val="'+sDistance[i].attrib['val']+'" to_dh="'+sDistance[i].attrib['to_dh']+'" />\n')
                 
                 i += 1
                 
         if i == len(direction)-1: # dernier test
-            fichierSortie.write('<direction to="'+direction[i].attrib['to']+'" val="'+direction[i].attrib['val']+'" to_dh="'+direction[i].attrib['to_dh']+'" />\n')                
-            fichierSortie.write('<z-angle to="'+zAngle[i].attrib['to']+'" val="'+zAngle[i].attrib['val']+'" to_dh="'+zAngle[i].attrib['to_dh']+'" />\n')
-            fichierSortie.write('<s-distance to="'+sDistance[i].attrib['to']+'" val="'+sDistance[i].attrib['val']+'" to_dh="'+sDistance[i].attrib['to_dh']+'" />\n')
+            fichierSortie.write('    <direction to="'+direction[i].attrib['to']+'" val="'+direction[i].attrib['val']+'" to_dh="'+direction[i].attrib['to_dh']+'" />\n')                
+            fichierSortie.write('    <z-angle to="'+zAngle[i].attrib['to']+'" val="'+zAngle[i].attrib['val']+'" to_dh="'+zAngle[i].attrib['to_dh']+'" />\n')
+            fichierSortie.write('    <s-distance to="'+sDistance[i].attrib['to']+'" val="'+sDistance[i].attrib['val']+'" to_dh="'+sDistance[i].attrib['to_dh']+'" />\n')
             
         fichierSortie.write('</obs>\n')
-
+    
+    fichierSortie.write("""\n</points-observations>\n\n</network>\n</gama-local>""")
+    
+    fichierEntree.close()
+    
     fichierSortie.close()
 
     
