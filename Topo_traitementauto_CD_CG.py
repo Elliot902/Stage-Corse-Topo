@@ -16,7 +16,6 @@ CONTEXTE : STAGE PLURIDISCIPLINAIRE ING2
 
 import sys
 from lxml import etree
-#from lxml import builder # pour construire un fichier XML
 import numpy as np
 
 
@@ -84,12 +83,12 @@ def calcul_z_angle(vert_cercleD, vert_cercleG):
 if __name__ == "__main__":
 
    
-    #nomFichierEntree = sys.argv[1] # récupération du nom de fichier à partir de la ligne de commande
-    nomFichierEntree = 'STMARTIN_M.xml'
+    nomFichierEntree = sys.argv[1] # récupération du nom de fichier à partir de la ligne de commande
+    #nomFichierEntree = 'STMARTIN_M.xml'
     fichierEntree = open(nomFichierEntree, 'r')
     
-    #fichierResultat = sys.argv[2] # récupération du nom de fichier de sortie
-    nomFichierResultat = 'resultat.xml'
+    fichierResultat = sys.argv[2] # récupération du nom de fichier de sortie
+    #nomFichierResultat = 'resultat.xml'
     fichierSortie = open(nomFichierResultat, 'w')
     
     while True:
