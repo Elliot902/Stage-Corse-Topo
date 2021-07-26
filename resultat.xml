@@ -5,6 +5,21 @@
 <direction to="S3" val="144.2695" to_dh="0.000" />
 <z-angle to="S3" val="103.0132" to_dh="0.000" />
 <s-distance to="S3" val="13.762" to_dh="0.000" />
+<direction to="P2" val="39.3116" to_dh="0.000" />
+<z-angle to="P2" val="90.3407" to_dh="0.000" />
+<s-distance to="P2" val="3.955" to_dh="0.000" />
+<direction to="P3" val="35.6110" to_dh="0.000" />
+<z-angle to="P3" val="91.3836" to_dh="0.000" />
+<s-distance to="P3" val="4.441" to_dh="0.000" />
+<direction to="P4" val="31.1887" to_dh="0.000" />
+<z-angle to="P4" val="111.1789" to_dh="0.000" />
+<s-distance to="P4" val="5.376" to_dh="0.000" />
+<direction to="P1" val="53.7676" to_dh="0.000" />
+<z-angle to="P1" val="29.2081" to_dh="0.000" />
+<s-distance to="P1" val="6.735" to_dh="0.000" />
+<direction to="S1" val="399.9936" to_dh="1.440" />
+<z-angle to="S1" val="100.2715" to_dh="1.440" />
+<s-distance to="S1" val="7.226" to_dh="1.440" />
 </obs>
 <obs from="S3" from_dh="0.000">
 <direction to="S2" val="400.001" to_dh="1.594" />
@@ -13,6 +28,9 @@
 <direction to="S4" val="55.235" to_dh="0.000" />
 <z-angle to="S4" val="99.383" to_dh="0.000" />
 <s-distance to="S4" val="16.038" to_dh="0.000" />
+<direction to="P5" val="48.7907" to_dh="0.000" />
+<z-angle to="P5" val="94.1862" to_dh="0.000" />
+<s-distance to="P5" val="9.225" to_dh="0.000" />
 </obs>
 <obs from="S4" from_dh="0.000">
 <direction to="S3" val="0.0016" to_dh="0.000" />
@@ -21,6 +39,18 @@
 <direction to="S1" val="100.3932" to_dh="1.645" />
 <z-angle to="S1" val="95.9243" to_dh="1.645" />
 <s-distance to="S1" val="10.456" to_dh="1.645" />
+<direction to="P6" val="55.2031" to_dh="0.000" />
+<z-angle to="P6" val="75.5711" to_dh="0.000" />
+<s-distance to="P6" val="8.362" to_dh="0.000" />
+<direction to="P7" val="77.7378" to_dh="0.000" />
+<z-angle to="P7" val="88.7972" to_dh="0.000" />
+<s-distance to="P7" val="6.049" to_dh="0.000" />
+<direction to="P8" val="74.6405" to_dh="0.000" />
+<z-angle to="P8" val="69.6308" to_dh="0.000" />
+<s-distance to="P8" val="6.919" to_dh="0.000" />
+<direction to="S3" val="399.9988" to_dh="1.645" />
+<z-angle to="S3" val="100.6223" to_dh="1.645" />
+<s-distance to="S3" val="16.038" to_dh="1.645" />
 </obs>
 <obs from="S1" from_dh="1.645">
 <direction to="S4" val="0.002" to_dh="0.000" />
