@@ -84,11 +84,9 @@ if __name__ == "__main__":
 
    
     nomFichierEntree = sys.argv[1] # récupération du nom de fichier à partir de la ligne de commande
-    #nomFichierEntree = 'STMARTIN_M.xml'
-    fichierEntree = open(nomFichierEntree, 'r')
+    nomFichierEntree = open(nomFichierEntree, 'r')
     
     fichierResultat = sys.argv[2] # récupération du nom de fichier de sortie
-    #nomFichierResultat = 'resultat.xml'
     fichierSortie = open(nomFichierResultat, 'w')
     
     while True:
